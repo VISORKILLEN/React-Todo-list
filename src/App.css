@@ -1,0 +1,132 @@
+/* Makes the colors to variables to change easy if wanted */
+:root {
+  --umbrella-red: #cc0000;
+  --dark-bg: #0a0a0a;
+  --panel-bg: #141414;
+  --text-main: #d1d1d1;
+  --success-green: #44ff44;
+}
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-main);
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+/* The main container for the todo list */
+.app-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: var(--panel-bg);
+  border: 1px solid #333;
+  /* Red line at the top, classic RE style */
+  border-top: 4px solid var(--umbrella-red);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  color: var(--umbrella-red);
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+/* The decorative "scanner" line under the title */
+.scanner-line {
+  height: 1px;
+  background: var(--umbrella-red);
+  margin-bottom: 25px;
+  box-shadow: 0 0 8px var(--umbrella-red);
+}
+
+/* Styling for the input form */
+.todo-input-form {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+input {
+  flex: 1;
+  background: #000;
+  border: 1px solid #444;
+  color: var(--text-main);
+  padding: 10px;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--umbrella-red);
+}
+
+button[type="submit"] {
+  background: var(--umbrella-red);
+  color: white;
+  border: none;
+  margin-left: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background: #990000;
+}
+
+/* Each row in the list */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #222;
+  transition: background 0.2s;
+}
+
+.todo-item:hover {
+  background: rgba(204, 0, 0, 0.05);
+}
+
+.todo-text {
+  cursor: pointer;
+  flex: 1;
+}
+
+.checkbox {
+  color: var(--umbrella-red);
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* Styling when a task is finished */
+.todo-item.completed {
+  color: var(--success-green);
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+}
+
+.todo-item.completed .checkbox {
+  color: var(--success-green);
+}
+
+/* Delete button */
+.delete-btn {
+  background: transparent;
+  color: #666;
+  border: 1px solid #444;
+  cursor: pointer;
+  font-size: 0.6rem;
+  padding: 4px 8px;
+}
+
+.delete-btn:hover {
+  background: var(--umbrella-red);
+  color: white;
+  border-color: var(--umbrella-red);
+}
