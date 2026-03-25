@@ -6,7 +6,6 @@ import "../App.css";
 function TodoList() {
   // Check if there is any old list saved
   const [todos, setTodos] = useState(() => {
-    // look för saved list in browser
     const saved = localStorage.getItem("todo-list-data");
 
     // Parse the JSON string back into an array, or start with an empty array
@@ -61,7 +60,7 @@ function TodoList() {
         {/* take list and make every item into row on screen */}
         {todos.map((todo) => (
           <TodoItem
-            // react uses a key here to keep track of the items
+            // react uses a key to keep track of the items
             key={todo.id}
             todo={todo}
             toggleTodo={toggleTodo}

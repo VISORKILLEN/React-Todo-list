@@ -18,7 +18,7 @@ function TodoInput({addTodo}) {
   return (
     <form onSubmit={handleSumbit} className="todo-input-form">
       <input
-        //Binds the input to our state, then updates per character written
+        //Binds the input to state, then updates per character written
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}

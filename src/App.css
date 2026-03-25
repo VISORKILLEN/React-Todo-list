@@ -1,4 +1,4 @@
-/* Makes the colors to variables to change easy if wanted */
+/* Color variables for easy customization */
 :root {
   --umbrella-red: #cc0000;
   --dark-bg: #0a0a0a;
@@ -6,27 +6,39 @@
   --text-main: #d1d1d1;
   --success-green: #44ff44;
 }
+
+/* Base resets for better box model handling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main body styling for center alignment and background */
 body {
   background-color: var(--dark-bg);
   color: var(--text-main);
   font-family: "Courier New", Courier, monospace;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
   padding-top: 50px;
+  min-height: 100vh;
 }
 
 /* The main container for the todo list */
 .app-container {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   padding: 20px;
   background-color: var(--panel-bg);
   border: 1px solid #333;
-  /* Red line at the top, classic RE style */
   border-top: 4px solid var(--umbrella-red);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
+/* Main title styling */
 h1 {
   color: var(--umbrella-red);
   text-align: center;
@@ -35,7 +47,7 @@ h1 {
   margin-bottom: 5px;
 }
 
-/* The decorative "scanner" line under the title */
+/* Decorative scanner line under the title */
 .scanner-line {
   height: 1px;
   background: var(--umbrella-red);
@@ -43,90 +55,116 @@ h1 {
   box-shadow: 0 0 8px var(--umbrella-red);
 }
 
-/* Styling for the input form */
+/* Layout for the input form */
 .todo-input-form {
   display: flex;
+  gap: 10px;
   margin-bottom: 25px;
 }
 
+/* Text input field styling */
 input {
   flex: 1;
   background: #000;
   border: 1px solid #444;
   color: var(--text-main);
-  padding: 10px;
+  padding: 12px;
   outline: none;
+  font-family: inherit;
 }
 
+/* Input focus state highlight */
 input:focus {
   border-color: var(--umbrella-red);
 }
 
+/* Submit button styling */
 button[type="submit"] {
   background: var(--umbrella-red);
   color: white;
   border: none;
-  margin-left: 20px;
-  padding: 10px 15px;
+  padding: 10px 20px;
   cursor: pointer;
   font-weight: bold;
+  font-family: inherit;
+  transition: background 0.3s;
 }
 
+/* Submit button hover effect */
 button[type="submit"]:hover {
   background: #990000;
 }
 
-/* Each row in the list */
+/* Individual list item row styling */
 .todo-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px;
+  padding: 12px 5px;
   border-bottom: 1px solid #222;
   transition: background 0.2s;
 }
 
+/* Row hover effect */
 .todo-item:hover {
   background: rgba(204, 0, 0, 0.05);
 }
 
+/* Text inside the todo item */
 .todo-text {
   cursor: pointer;
   flex: 1;
+  word-break: break-word;
+  padding-right: 10px;
 }
 
+/* Checkbox/Status indicator styling */
 .checkbox {
   color: var(--umbrella-red);
   margin-right: 10px;
   font-weight: bold;
 }
 
-/* Styling when a task is finished */
+/* Styling for completed tasks */
 .todo-item.completed {
   color: var(--success-green);
   opacity: 0.6;
 }
 
+/* Strikethrough for completed task text */
 .todo-item.completed .todo-text {
   text-decoration: line-through;
 }
 
+/* Green color for completed checkbox */
 .todo-item.completed .checkbox {
   color: var(--success-green);
 }
 
-/* Delete button */
+/* Delete button styling */
 .delete-btn {
   background: transparent;
   color: #666;
   border: 1px solid #444;
   cursor: pointer;
-  font-size: 0.6rem;
-  padding: 4px 8px;
+  font-size: 0.7rem;
+  padding: 6px 10px;
+  text-transform: uppercase;
 }
 
+/* Delete button hover effect */
 .delete-btn:hover {
   background: var(--umbrella-red);
   color: white;
   border-color: var(--umbrella-red);
 }
+
+
+/* Adjustments for screens smaller than 480px */
+@media (max-width: 480px) {
+  /* Reduce top padding on mobile */
+  body {
+    padding-top: 20px;
+  }
+
+  /* Adjust container

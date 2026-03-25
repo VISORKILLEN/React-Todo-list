@@ -2,7 +2,7 @@ import React from "react";
 
 function TodoItem({ todo, toggleTodo, deleteTodo }) {
   return (
-    //if hte todo is done, the CSS class for that is added
+    //if the todo is done, the CSS class for that is added
     <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
       {/* Click area to toogle status done or pending */}
       <div className="todo-text" onClick={() => toggleTodo(todo.id)}>
